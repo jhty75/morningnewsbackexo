@@ -9,6 +9,7 @@ router.get('/articles', (req, res) => {
   fetch(`https://newsapi.org/v2/top-headlines?sources=the-verge&apiKey=${NEWS_API_KEY}`)
     .then(response => response.json())
     .then(data => {
+      console.log('log data',data);
       if (data.status === 'ok') {
         res.json({ articles: data.articles });
       } else {
